@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="weather-clear">
+    <div class="app-container">
+        
+        <header class="search-section">
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="cityInput" placeholder="Search for a city...">
+                <button id="searchBtn">Search</button>
+            </div>
+            <button id="locationBtn" title="Use Current Location">
+                <i class="fas fa-location-arrow"></i>
+            </button>
+        </header>
+
+        <div class="history-container" id="recentHistory"></div>
+
+        <div id="loadingState" class="loader hidden">
+            <div class="spinner"></div>
+            <p>Fetching real-time weather data...</p>
+        </div>
+
+        <main id="weatherDashboard" class="dashboard-grid hidden">
+            
+            <section class="main-weather-card">
+                <div class="location-details">
+                    <h1 id="cityName">City Name</h1>
+                    <p id="currentDateTime">Date & Time</p>
+                </div>
+                <div class="weather-display">
+                    <i id="mainWeatherIcon" class="fas fa-sun dynamic-icon"></i>
+                    <h2 id="mainTemp">--°C</h2>
+                    <p id="weatherDesc">Condition</p>
+                </div>
+            </section>
+
+            <div class="side-panel">
+                <section class="metrics-grid">
+                    <div class="metric-card">
+                        <i class="fas fa-temperature-three-quarters"></i>
+                        <div class="metric-info">
+                            <span>Feels Like</span>
+                            <strong id="feelsLike">--°C</strong>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-droplet"></i>
+                        <div class="metric-info">
+                            <span>Humidity</span>
+                            <strong id="humidity">--%</strong>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-wind"></i>
+                        <div class="metric-info">
+                            <span>Wind Speed</span>
+                            <strong id="windSpeed">-- km/h</strong>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <i class="fas fa-sun"></i>
+                        <div class="metric-info">
+                            <span>UV Index</span>
+                            <strong id="uvIndex">--</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="forecast-section">
+                    <h3>7-Day Extended Forecast</h3>
+                    <div class="forecast-grid" id="forecastContainer"></div>
+                </section>
+            </div>
+
+        </main>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
